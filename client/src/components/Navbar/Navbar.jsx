@@ -1,7 +1,7 @@
-import './Navbar.scss'
 import {NavLink} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {logout} from "../../store/reducers/userReducer";
+import './Navbar.scss'
 
 const Navbar = () => {
     const dispatch = useDispatch()

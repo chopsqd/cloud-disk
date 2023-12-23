@@ -41,7 +41,7 @@ export const auth = () => {
             dispatch(setUser(response.data.user))
             localStorage.setItem("token", response.data.token)
         } catch (error) {
-            alert(error.response.data.message)
+            // alert(error.response.data.message)
             localStorage.removeItem("token")
         }
     }

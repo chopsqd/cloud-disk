@@ -1,8 +1,8 @@
-import './Authorization.scss'
-import Input from "../../components/Input/Input";
 import {useState} from "react";
-import {login, registration} from "../../api/user";
 import {useDispatch} from "react-redux";
+import Input from "../../components/Input/Input";
+import {login, registration} from "../../api/user";
+import './Authorization.scss'
 
 const Authorization = ({type}) => {
     const dispatch = useDispatch()

@@ -12,8 +12,7 @@ module.exports = (req, res, next) => {
             return res.status(401).json({message: "Unauthorized"})
         }
 
-        const decoded = jwt.verify(token, config.get('SECRET_KEY'))
-        req.user = decoded
+        req.user = jwt.verify(token, config.get('SECRET_KEY'))
 
         next()
     } catch(error) {
