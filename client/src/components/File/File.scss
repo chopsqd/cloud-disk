@@ -7,6 +7,7 @@
 
   &:hover {
     transform: scale(1.01);
+    cursor: pointer;
   }
 
   &__img {
@@ -21,5 +22,27 @@
   &__size {
     grid-column-start: 6;
     justify-self: center;
+  }
+
+  &__btn {
+    display: none;
+  }
+
+  &:hover &__date {
+    grid-column-start: 3;
+  }
+
+  &:hover &__size {
+    grid-column-start: 4;
+  }
+
+  &:hover &__download {
+    display: block;
+    grid-column-start: 5;
+  }
+
+  &:hover &__delete {
+    display: block;
+    grid-column-start: 6;
   }
 }

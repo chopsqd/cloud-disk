@@ -10,7 +10,10 @@ const app = express()
 const PORT = config.get('PORT')
 
 app.use(cors())
-app.use(fileUpload({}))
+app.use(fileUpload({
+    defCharset: 'utf8',
+    defParamCharset: 'utf8'
+}));
 app.use(express.json())
 app.use("/api/auth", authRouter)
 app.use("/api/file", fileRouter)
