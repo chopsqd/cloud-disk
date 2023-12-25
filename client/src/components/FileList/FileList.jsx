@@ -1,6 +1,6 @@
 import {useSelector} from "react-redux";
-import './FileList.scss'
 import File from "../File/File";
+import './FileList.scss'
 
 const FileList = () => {
     const files = useSelector(state => state.file.files)

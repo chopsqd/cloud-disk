@@ -1,9 +1,9 @@
 import Input from "../Input/Input";
 import {useState} from "react";
-import './Popup.scss';
 import {useDispatch, useSelector} from "react-redux";
 import {setPopupDisplay} from "../../store/reducers/fileReducer";
 import {mkDir} from "../../api/file";
+import './Popup.scss';
 
 const Popup = () => {
     const dispatch = useDispatch()

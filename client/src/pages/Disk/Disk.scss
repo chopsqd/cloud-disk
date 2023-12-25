@@ -3,9 +3,35 @@
 
   &__btns {
     display: flex;
+
+    button {
+      padding: 5px 10px;
+    }
   }
 
   &__create {
     margin-left: 10px;
   }
+
+  &__upload-input {
+    display: none;
+  }
+
+  &__upload-label {
+    border: 2px dashed #FFFFFF;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 10px
+  }
+}
+
+.drop-area {
+  width: 100%;
+  height: calc(100vh - 90px);
+  margin: 20px;
+  border: 2px dashed #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
 }

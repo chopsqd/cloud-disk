@@ -1,4 +1,5 @@
 const express = require('express')
+const fileUpload = require('express-fileupload')
 const mongoose = require('mongoose');
 const cors = require('cors');
 const config = require('config')
@@ -9,6 +10,7 @@ const app = express()
 const PORT = config.get('PORT')
 
 app.use(cors())
+app.use(fileUpload({}))
 app.use(express.json())
 app.use("/api/auth", authRouter)
 app.use("/api/file", fileRouter)
