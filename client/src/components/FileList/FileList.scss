@@ -19,4 +19,26 @@
     grid-column-start: 6;
     justify-self: center;
   }
+
+  &-empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+  }
+}
+
+.file-enter-active {
+  animation: file-enter 500ms forwards;
+}
+
+@keyframes file-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

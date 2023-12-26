@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Authorization from "./pages/Authorization/Authorization";
 import Disk from "./pages/Disk/Disk";
 import {auth} from "./api/user";
+import Loader from "./components/Loader/Loader";
 
 const App = () => {
     const dispatch = useDispatch()

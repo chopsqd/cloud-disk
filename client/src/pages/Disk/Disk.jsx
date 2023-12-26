@@ -5,15 +5,19 @@ import FileList from "../../components/FileList/FileList";
 import Popup from "../../components/Popup/Popup";
 import {setCurrentDir, setPopupDisplay} from "../../store/reducers/fileReducer";
 import './Disk.scss';
+import Uploader from "../../components/Uploader/Uploader";
+import Loader from "../../components/Loader/Loader";
 
 const Disk = () => {
     const dispatch = useDispatch()
     const {currentDir, dirStack} = useSelector(state => state.file)
+    const loading = useSelector(state => state.app.loading)
     const [dragEnter, setDragEnter] = useState(false);
+    const [sort, setSort] = useState("type")
 
     useEffect(() => {
-        dispatch(getFiles(currentDir))
-    }, [currentDir])
+        dispatch(getFiles(currentDir, sort))
+    }, [currentDir, sort])
 
     const showPopupHandler = () => {
         dispatch(setPopupDisplay('flex'))
@@ -49,6 +53,10 @@ const Disk = () => {
         setDragEnter(false)
     }
 
+    if(loading) {
+        return <Loader />
+    }
+
     return !dragEnter ?
         <div className={"disk"} onDragEnter={dragEnterHandler} onDragLeave={dragLeaveHandler} onDragOver={dragEnterHandler}>
             <div className={"disk__btns"}>
@@ -58,11 +66,17 @@ const Disk = () => {
                     <label htmlFor={"disk__upload-input"} className={"disk__upload-label"}>Загрузить файл</label>
                     <input multiple={true} onChange={fileUploadHandler} type="file" id={"disk__upload-input"} className={"disk__upload-input"}/>
                 </div>
+
+                <select value={sort} className={"disk__select"} onChange={e => setSort(e.target.value)}>
+                    <option value="name">Наименование</option>
+                    <option value="type">Тип</option>
+                    <option value="date">Дата</option>
+                </select>
             </div>
 
             <FileList />
-
             <Popup />
+            <Uploader />
         </div>
         :
         <div className={"drop-area"} onDrop={dropHandler} onDragEnter={dragEnterHandler} onDragLeave={dragLeaveHandler} onDragOver={dragEnterHandler}>

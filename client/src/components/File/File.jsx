@@ -4,6 +4,7 @@ import './File.scss';
 import {useDispatch, useSelector} from "react-redux";
 import {pushToStack, setCurrentDir} from "../../store/reducers/fileReducer";
 import {deleteFile, downloadFile} from "../../api/file";
+import sizeFormat from "../../utils/sizeFormat";
 
 const File = ({file}) => {
     const dispatch = useDispatch()
@@ -31,7 +32,7 @@ const File = ({file}) => {
             <img src={file.type === "dir" ? dirLogo : fileLogo} alt={file.name} className={"file__img"}/>
             <div className={"file__name"}>{file.name}</div>
             <div className={"file__date"}>{new Date(file.date).toLocaleDateString()}</div>
-            <div className={"file__size"}>{file.size}</div>
+            {file.type !== "dir" && <div className={"file__size"}>{sizeFormat(file.size)}</div>}
 
             {file.type !== "dir" && <button className={"file__btn file__download"} onClick={downloadHandler}>Скачать</button>}
             <button onClick={deleteHandler} className={"file__btn file__delete"}>Удалить</button>

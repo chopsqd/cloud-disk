@@ -1,0 +1,35 @@
+.upload-file {
+  background-color: #26CCFF;
+  border-radius: 12px;
+  margin: 5px 0;
+  padding: 5px 10px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__name {
+    overflow: hidden;
+  }
+
+  &__progress-bar {
+    height: 1rem;
+    border-radius: 12px;
+    background-color: #FFFFFF;
+    display: flex;
+    margin: 3px 0;
+  }
+
+  &__upload-bar {
+    background-color: #47d500;
+    border-radius: 12px;
+    width: 0;
+  }
+
+  &__percent {
+    color: black;
+    left: 50%;
+    position: absolute;
+  }
+}
