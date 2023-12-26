@@ -33,21 +33,7 @@ class FileController {
     async getFiles(req, res) {
         try {
             const {sort} = req.query
-            let files
-
-            switch(sort) {
-                case 'name':
-                    files = await File.find({user: req.user.id, parent: req.query.parent}).sort({name: 1})
-                    break;
-                case 'type':
-                    files = await File.find({user: req.user.id, parent: req.query.parent}).sort({type: 1})
-                    break;
-                case 'date':
-                    files = await File.find({user: req.user.id, parent: req.query.parent}).sort({date: 1})
-                    break;
-                default:
-                    files = await File.find({user: req.user.id, parent: req.query.parent})
-            }
+            const files = await File.find({user: req.user.id, parent: req.query.parent}).sort({[sort] : 1})
 
             return res.json(files)
         } catch(error) {
@@ -108,7 +94,7 @@ class FileController {
     async downloadFile(req, res) {
         try {
             const file = await File.findOne({_id: req.query.id, user: req.user.id})
-            const path = `${config.get('filePath')}\\${req.user.id}\\${file.path}`
+            const path = FileService.getPath(file)
 
             if(!fs.existsSync(path)) {
                 return res.status(400).json({message: "File not found"})
@@ -148,6 +134,37 @@ class FileController {
         } catch(error) {
             console.log('Error: ', error)
             return res.status(400).json({message: "Search error"})
+        }
+    }
+
+    async uploadAvatar(req, res) {
+        try {
+            const file = req.files.file
+            const user = await User.findById(req.user.id)
+            const avatarName = Date.now().toString() + ".jpg"
+
+            file.mv(`${config.get('staticPath')}\\${avatarName}`)
+            user.avatar = avatarName
+            await user.save()
+
+            return res.json(user)
+        } catch(error) {
+            console.log('Error: ', error)
+            return res.status(400).json({message: "Failed to upload avatar"})
+        }
+    }
+
+    async deleteAvatar(req, res) {
+        try {
+            const user = await User.findById(req.user.id)
+            fs.unlinkSync(`${config.get('staticPath')}\\${user.avatar}`)
+            user.avatar = null
+            await user.save()
+
+            return res.json(user)
+        } catch(error) {
+            console.log('Error: ', error)
+            return res.status(400).json({message: "Failed to delete avatar"})
         }
     }
 }

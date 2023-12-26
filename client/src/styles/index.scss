@@ -19,8 +19,30 @@ body {
   width: 100%;
 }
 
+.btn {
+  text-decoration: none;
+  text-align: center;
+  font-weight: 700;
+  color: #26CCFF;
+  cursor: pointer;
+  padding: 3px 10px;
+  border: 2px solid #26CCFF;
+  border-radius: 12px;
+  transition: all .5s ease;
+
+  &-white {
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+  }
+
+  &:hover {
+    color: #FF26CC;
+    border: 2px solid #FF26CC;
+  }
+}
+
 .container {
-  width: 100%;
+  width: 95%;
   max-width: 1140px;
   margin: 0 auto;
 }

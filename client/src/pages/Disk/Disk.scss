@@ -3,6 +3,7 @@
 
   &__btns {
     display: flex;
+    align-items: center;
 
     button {
       padding: 5px 10px;
@@ -26,6 +27,32 @@
 
   &__select {
     margin-left: auto;
+    padding: 5px;
+  }
+
+  &__list, &__plate {
+    height: 20px;
+    width: 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: no-repeat center center;
+    background-size: contain;
+    margin-left: 10px;
+    opacity: .5;
+    transition: all .5s ease;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+
+  &__list {
+    background-image: url("../../assets/list.svg");
+  }
+
+  &__plate {
+    background-image: url("../../assets/plate.svg");
   }
 }
 

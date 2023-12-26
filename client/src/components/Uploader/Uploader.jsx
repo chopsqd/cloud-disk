@@ -1,7 +1,7 @@
-import './Uploader.scss';
 import UploadFile from "../UploadFile/UploadFile";
 import {useDispatch, useSelector} from "react-redux";
 import {toggleUploader} from "../../store/reducers/uploadReducer";
+import './Uploader.scss';
 
 const Uploader = () => {
     const dispatch = useDispatch()

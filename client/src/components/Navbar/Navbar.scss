@@ -8,9 +8,29 @@
   margin-top: 10px;
   border-radius: 12px;
 
-  &__header {
-    font-size: 24px;
-    font-weight: 700;
+  &__logo {
+    a {
+      text-decoration: none;
+    }
+
+    p {
+      font-size: 24px;
+      font-weight: 700;
+
+      background:
+        linear-gradient(
+          to right,
+          #26CCFF 0%,
+          #6737FF 40%,
+          #FF26CC 80%
+        );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-fill-color: transparent;
+      background-size: 500% auto;
+      animation: textShine 5s ease-in-out infinite alternate;
+    }
   }
 
   &__login {
@@ -20,11 +40,33 @@
 
   &__logout {
     margin-left: auto;
+    margin-right: 20px;
     cursor: pointer;
   }
 
   &__search {
     width: 200px;
     margin-left: 25vw;
+    transition: all .3s ease;
+
+    :focus {
+      border-bottom: 2px solid #5CD6FF;
+    }
+  }
+
+  &__avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid #26CCFF;
+  }
+}
+
+@keyframes textShine {
+  0% {
+    background-position: 0 50%;
+  }
+  100% {
+    background-position: 100% 50%;
   }
 }

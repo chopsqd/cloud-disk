@@ -3,14 +3,14 @@ import {useEffect, useState} from "react";
 import {getFiles, uploadFile} from "../../api/file";
 import FileList from "../../components/FileList/FileList";
 import Popup from "../../components/Popup/Popup";
-import {setCurrentDir, setPopupDisplay} from "../../store/reducers/fileReducer";
-import './Disk.scss';
+import {setCurrentDir, setPopupDisplay, setView} from "../../store/reducers/fileReducer";
 import Uploader from "../../components/Uploader/Uploader";
 import Loader from "../../components/Loader/Loader";
+import './Disk.scss';
 
 const Disk = () => {
     const dispatch = useDispatch()
-    const {currentDir, dirStack} = useSelector(state => state.file)
+    const {currentDir, dirStack, view} = useSelector(state => state.file)
     const loading = useSelector(state => state.app.loading)
     const [dragEnter, setDragEnter] = useState(false);
     const [sort, setSort] = useState("type")
@@ -72,6 +72,9 @@ const Disk = () => {
                     <option value="type">Тип</option>
                     <option value="date">Дата</option>
                 </select>
+
+                <button className={`disk__plate ${view === 'plate' ? 'active' : ''}`} onClick={() => dispatch(setView('plate'))}/>
+                <button className={`disk__list ${view === 'list' ? 'active' : ''}`} onClick={() => dispatch(setView('list'))}/>
             </div>
 
             <FileList />

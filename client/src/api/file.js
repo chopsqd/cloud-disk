@@ -8,7 +8,7 @@ export function getFiles(dirId, sort) {
     return async dispatch => {
         try {
             dispatch(toggleLoader(true))
-            const response = await axios.get(API_LINK + 'file', {
+            const response = await axios.get(API_LINK + 'api/file', {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`
                 },
@@ -20,7 +20,7 @@ export function getFiles(dirId, sort) {
 
             dispatch(setFiles(response.data))
         } catch (error) {
-            alert(error.response.data.message)
+            console.log(error.response.data)
         } finally {
             dispatch(toggleLoader(false))
         }
@@ -30,7 +30,7 @@ export function getFiles(dirId, sort) {
 export function mkDir(dirId, name) {
     return async dispatch => {
         try {
-            const response = await axios.post(API_LINK + 'file', {
+            const response = await axios.post(API_LINK + 'api/file', {
                 name,
                 parent: dirId,
                 type: 'dir'
@@ -42,7 +42,7 @@ export function mkDir(dirId, name) {
 
             dispatch(addFile(response.data))
         } catch (error) {
-            alert(error.response.data.message)
+            console.log(error.response.data)
         }
     }
 }
@@ -60,7 +60,7 @@ export function uploadFile(file, dirId) {
             const uploadFile = {name: file.name, progress: 0, id: Date.now()}
             dispatch(toggleUploader(true))
             dispatch(addUploadFile(uploadFile))
-            const response = await axios.post(API_LINK + 'file/upload', formData, {
+            const response = await axios.post(API_LINK + 'api/file/upload', formData, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`
                 },
@@ -75,13 +75,13 @@ export function uploadFile(file, dirId) {
 
             dispatch(addFile(response.data))
         } catch (error) {
-            alert(error.response.data.message)
+            console.log(error.response.data)
         }
     }
 }
 
 export async function downloadFile(file) {
-    const response = await fetch(API_LINK + `file/download?id=${file._id}`, {
+    const response = await fetch(API_LINK + `api/file/download?id=${file._id}`, {
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`
         },
@@ -102,7 +102,7 @@ export async function downloadFile(file) {
 export function deleteFile(file) {
     return async dispatch => {
         try {
-            const response = await axios.delete(API_LINK + `file?id=${file._id}`, {
+            const response = await axios.delete(API_LINK + `api/file?id=${file._id}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`
                 }
@@ -111,7 +111,7 @@ export function deleteFile(file) {
             dispatch(deleteFileAction(file._id))
             alert(response.data.message)
         } catch (error) {
-            alert(error.response.data.message)
+            console.log(error.response.data)
         }
     }
 }
@@ -119,7 +119,7 @@ export function deleteFile(file) {
 export function searchFiles(search) {
     return async dispatch => {
         try {
-            const response = await axios.get(API_LINK + `file/search?search=${search}`, {
+            const response = await axios.get(API_LINK + `api/file/search?search=${search}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`
                 }
@@ -127,7 +127,7 @@ export function searchFiles(search) {
 
             dispatch(setFiles(response.data))
         } catch (error) {
-            alert(error.response.data.message)
+            console.log(error.response.data)
         } finally {
             dispatch(toggleLoader(false))
         }

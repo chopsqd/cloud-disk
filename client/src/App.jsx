@@ -1,11 +1,11 @@
 import {useEffect} from "react";
-import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
+import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import Navbar from "./components/Navbar/Navbar";
 import Authorization from "./pages/Authorization/Authorization";
 import Disk from "./pages/Disk/Disk";
 import {auth} from "./api/user";
-import Loader from "./components/Loader/Loader";
+import Profile from "./pages/Profile/Profile";
 
 const App = () => {
     const dispatch = useDispatch()
@@ -28,6 +28,7 @@ const App = () => {
                     :
                     <Routes>
                         <Route path={"/"} element={<Disk />} />
+                        <Route path={"/profile"} element={<Profile />} />
                         <Route path="*" element={<Navigate to="/" replace />}/>
                     </Routes>
                 }

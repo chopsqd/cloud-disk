@@ -15,6 +15,7 @@ app.use(fileUpload({
     defParamCharset: 'utf8'
 }));
 app.use(express.json())
+app.use(express.static('static'))
 app.use("/api/auth", authRouter)
 app.use("/api/file", fileRouter)
 
