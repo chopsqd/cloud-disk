@@ -1,8 +1,10 @@
+@import './src/styles/vars';
+
 .uploader {
   width: 300px;
   height: 300px;
   position: fixed;
-  background-color: #FFFFFF;
+  background-color: white;
   bottom: 0;
   right: 0;
   padding: 20px;
@@ -15,8 +17,7 @@
   }
 
   &__title {
-    color: #12B8FF;
-    font-size: 1.2rem;
+    font-weight: 700;
   }
 
   &__close {

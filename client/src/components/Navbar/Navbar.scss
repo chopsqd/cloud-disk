@@ -1,8 +1,10 @@
+@import './src/styles/vars';
+
 .navbar {
   display: flex;
   align-items: center;
   height: 50px;
-  background: #FFF;
+  background: white;
   width: 100%;
   padding: 20px;
   margin-top: 10px;
@@ -17,13 +19,12 @@
       font-size: 24px;
       font-weight: 700;
 
-      background:
-        linear-gradient(
-          to right,
-          #26CCFF 0%,
-          #6737FF 40%,
-          #FF26CC 80%
-        );
+      background: linear-gradient(
+                      to right,
+                      $primary 0%,
+                      $thirdly 40%,
+                      $secondary 80%
+      );
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -50,7 +51,7 @@
     transition: all .3s ease;
 
     :focus {
-      border-bottom: 2px solid #5CD6FF;
+      border-bottom: 2px solid $primary;
     }
   }
 
@@ -58,7 +59,7 @@
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    border: 2px solid #26CCFF;
+    border: 2px solid $primary;
   }
 }
 

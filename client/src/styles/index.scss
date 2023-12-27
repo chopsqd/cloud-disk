@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Kanit:wght@400;700&display=swap');
+@import './vars';
 
 * {
   margin: 0;
@@ -10,7 +11,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #26CCFF;
+  background-color: $primary;
 
   font-family: 'Kanit', sans-serif;
 }
@@ -21,23 +22,54 @@ body {
 
 .btn {
   text-decoration: none;
+  background: transparent;
   text-align: center;
   font-weight: 700;
-  color: #26CCFF;
+  color: $primary;
+  font-size: 16px;
   cursor: pointer;
   padding: 3px 10px;
-  border: 2px solid #26CCFF;
+  border: 2px solid $primary;
   border-radius: 12px;
   transition: all .5s ease;
 
   &-white {
-    color: #FFFFFF;
-    border: 2px solid #FFFFFF;
+    color: white;
+    border: 2px solid white;
   }
 
   &:hover {
-    color: #FF26CC;
-    border: 2px solid #FF26CC;
+    color: $secondary;
+    border: 2px solid $secondary;
+  }
+}
+
+.select {
+  text-align: left;
+  background: transparent;
+  font-weight: 700;
+  outline: none;
+  color: $primary;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 3px 10px;
+  border: 2px solid $primary;
+  border-radius: 12px;
+  transition: all .5s ease;
+
+  &-white {
+    color: white;
+    border: 2px solid white;
+  }
+
+  &:hover {
+    color: $secondary;
+    border: 2px solid $secondary;
+  }
+
+  option {
+    color: $primary;
+    font-weight: 700;
   }
 }
 

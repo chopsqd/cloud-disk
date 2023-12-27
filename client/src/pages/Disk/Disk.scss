@@ -1,13 +1,12 @@
 .disk {
-  margin-top: 20px;
+  margin-top: 10px;
+  padding: 30px;
+  border: 5px solid white;
+  border-radius: 12px;
 
   &__btns {
     display: flex;
     align-items: center;
-
-    button {
-      padding: 5px 10px;
-    }
   }
 
   &__create {
@@ -19,7 +18,7 @@
   }
 
   &__upload-label {
-    border: 2px dashed #FFFFFF;
+    border: 2px dashed white;
     padding: 5px 10px;
     cursor: pointer;
     margin-left: 10px
@@ -27,7 +26,6 @@
 
   &__select {
     margin-left: auto;
-    padding: 5px;
   }
 
   &__list, &__plate {
@@ -60,7 +58,7 @@
   width: 100%;
   height: calc(100vh - 90px);
   margin: 20px;
-  border: 2px dashed #FFFFFF;
+  border: 2px dashed white;
   display: flex;
   justify-content: center;
   align-items: center;

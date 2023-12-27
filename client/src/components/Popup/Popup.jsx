@@ -25,7 +25,7 @@ const Popup = () => {
             <div className={"popup__content"} onClick={event => event.stopPropagation()}>
                 <div className={"popup__header"}>
                     <div className={"popup__title"}>Создать новую папку</div>
-                    <button className={"popup__close"} onClick={handleClose}>&times;</button>
+                    <button className={"btn popup__close"} onClick={handleClose}>&times;</button>
                 </div>
 
                 <Input
@@ -35,7 +35,7 @@ const Popup = () => {
                     placeholder={"Название папки..."}
                 />
 
-                <button className={"popup__create"} onClick={handleCreate}>Создать</button>
+                <button className={"btn popup__create"} onClick={handleCreate}>Создать</button>
             </div>
         </div>
     );

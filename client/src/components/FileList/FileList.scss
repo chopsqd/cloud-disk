@@ -2,6 +2,8 @@
   margin: 20px 0;
 
   &__header {
+    color: white;
+    font-weight: 700;
     display: grid;
     grid-template-columns: 1fr 4fr repeat(4, 1fr);
   }
@@ -22,6 +24,8 @@
 
   &-empty {
     display: flex;
+    color: white;
+    font-size: 25px;
     justify-content: center;
     align-items: center;
     height: 75vh;

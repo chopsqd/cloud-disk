@@ -1,6 +1,9 @@
+@import './src/styles/vars';
+
 .file-item-list {
+  color: white;
   margin: 10px 0;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid white;
   display: grid;
   grid-template-columns: 1fr 4fr repeat(4, 1fr);
   align-items: center;
@@ -14,7 +17,7 @@
     justify-content: center;
   }
 
-  &__date {
+  &__date-dir, &__date-file {
     grid-column-start: 5;
     justify-self: center;
   }
@@ -26,9 +29,10 @@
 
   &__btn {
     display: none;
+    margin-right: 10px;
   }
 
-  &:hover &__date {
+  &:hover &__date-file {
     grid-column-start: 3;
   }
 
@@ -48,6 +52,7 @@
 }
 
 .file-item-plate {
+  color: white;
   width: 150px;
   height: 150px;
   cursor: pointer;
@@ -61,6 +66,7 @@
   }
 
   &__btns {
+    margin-top: 5px;
     display: none;
   }
 

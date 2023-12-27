@@ -1,6 +1,8 @@
+@import './src/styles/vars.scss';
+
 input {
   border: none;
-  border-bottom: 2px solid #26CCFF;
+  border-bottom: 2px solid $primary;
   background: transparent;
   width: 100%;
   padding: 3px;
@@ -9,7 +11,7 @@ input {
 
   &:focus {
     outline: none;
-    border-bottom: 2px solid #FF26CC;
+    border-bottom: 2px solid $secondary;
     transform: scale(1.01);
   }
 }
@@ -18,14 +20,17 @@ input {
   color: black;
   font-weight: 700;
 }
+
 :-ms-input-placeholder { /* IE 10+ */
   color: black;
   font-weight: 700;
 }
+
 ::-moz-placeholder { /* Firefox 19+ */
   color: black;
   font-weight: 700;
 }
+
 :-moz-placeholder { /* Firefox 4 - 18 */
   color: black;
   font-weight: 700;

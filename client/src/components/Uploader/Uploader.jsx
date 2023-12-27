@@ -15,7 +15,7 @@ const Uploader = () => {
         <div className={"uploader"}>
             <div className={"uploader__header"}>
                 <div className={"uploader__title"}>Загрузки</div>
-                <button className={"uploader__close"} onClick={handleClose}>&times;</button>
+                <button className={"btn uploader__close"} onClick={handleClose}>&times;</button>
             </div>
             {files.map(file =>
                 <UploadFile key={file.id} file={file} />

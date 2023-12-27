@@ -60,14 +60,15 @@ const Disk = () => {
     return !dragEnter ?
         <div className={"disk"} onDragEnter={dragEnterHandler} onDragLeave={dragLeaveHandler} onDragOver={dragEnterHandler}>
             <div className={"disk__btns"}>
-                <button className={"disk__back"} onClick={backClickHandler}>Назад</button>
-                <button className={"disk__create"} onClick={showPopupHandler}>Создать папку</button>
+                <div className={"btn btn-white disk__back"} onClick={backClickHandler}>Назад</div>
+                <div className={"btn btn-white disk__create"} onClick={showPopupHandler}>Создать папку</div>
+
                 <div className={"disk__upload"}>
-                    <label htmlFor={"disk__upload-input"} className={"disk__upload-label"}>Загрузить файл</label>
+                    <label htmlFor={"disk__upload-input"} className={"btn btn-white disk__upload-label"}>Загрузить файл</label>
                     <input multiple={true} onChange={fileUploadHandler} type="file" id={"disk__upload-input"} className={"disk__upload-input"}/>
                 </div>
 
-                <select value={sort} className={"disk__select"} onChange={e => setSort(e.target.value)}>
+                <select value={sort} className={"select select-white disk__select"} onChange={e => setSort(e.target.value)}>
                     <option value="name">Наименование</option>
                     <option value="type">Тип</option>
                     <option value="date">Дата</option>

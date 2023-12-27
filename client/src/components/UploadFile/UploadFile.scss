@@ -1,12 +1,16 @@
+@import './src/styles/vars';
+
 .upload-file {
-  background-color: #26CCFF;
+  background-color: $primary;
   border-radius: 12px;
   margin: 5px 0;
   padding: 5px 10px;
 
   &__header {
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    margin-bottom: 5px;
   }
 
   &__name {
@@ -16,13 +20,14 @@
   &__progress-bar {
     height: 1rem;
     border-radius: 12px;
-    background-color: #FFFFFF;
+    background-color: white;
     display: flex;
     margin: 3px 0;
+    position: relative;
   }
 
   &__upload-bar {
-    background-color: #47d500;
+    background-color: green;
     border-radius: 12px;
     width: 0;
   }
@@ -31,5 +36,6 @@
     color: black;
     left: 50%;
     position: absolute;
+    top: -4px;
   }
 }
